@@ -1,0 +1,26 @@
+const MEMU = {
+  APPETIZER: {
+    MUSHROOM_SOUP: 6000,
+    TAPAS: 5500,
+    CAESAR_SALAD: 8000,
+  },
+  MAIN_DISH: {
+    T_BORN_STAKE: 55000,
+    BBQ_RIBS: 54000,
+    SEAFOOD_PASTA: 35000,
+    CHRISTMAS_PASTA: 25000,
+  },
+  DESSART: {
+    CHOCOLATE_CAKE: 15000,
+    ICECREAM: 5000,
+  },
+  DRINK: {
+    ZERO_COKE: 3000,
+    RED_WINE: 60000,
+    CHAMPAGNE: 25000,
+  },
+};
+
+Object.freeze(MEMU);
+
+export default MEMU;
