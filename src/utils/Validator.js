@@ -6,6 +6,14 @@ class Validator {
       throw new Error(ERROR_MESSAGE.EMPTY_INPUT);
     }
   }
+
+  static isOnlyNumber(input) {
+    const regEx = /^\d+$/;
+
+    if (!regEx.test(input)) {
+      throw new Error(ERROR_MESSAGE.INVALID_DAY);
+    }
+  }
 }
 
 export default Validator;
