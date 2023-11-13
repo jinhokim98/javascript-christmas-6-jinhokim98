@@ -44,6 +44,14 @@ class Validator {
     );
   }
 
+  static isNotDuplicateMenu(orders) {
+    const menus = PlannerUtils.seperateMenuFromOrder(orders);
+
+    this.findInvalidOrder(menus, (menu) =>
+      PlannerUtils.checkDuplicateInList(menus, menu),
+    );
+  }
+
   static findInvalidOrder(orders, condition) {
     if (orders.find((order) => condition(order)) !== undefined) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);

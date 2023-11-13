@@ -14,6 +14,7 @@ class Order {
     Validator.isNotIncludeEmptyOrder(orders);
     Validator.isValidOrderForm(orders);
     Validator.isInMenu(orders);
+    Validator.isNotDuplicateMenu(orders);
   }
 }
 

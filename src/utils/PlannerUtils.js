@@ -31,6 +31,10 @@ class PlannerUtils {
     const inMenu = [apitager, dessert, main, drink].join();
     return this.seperateOrdersByComma(inMenu);
   }
+
+  static checkDuplicateInList(list, element) {
+    return list.indexOf(element) !== list.lastIndexOf(element);
+  }
 }
 
 export default PlannerUtils;
