@@ -22,6 +22,10 @@ class PlannerUtils {
     return !menuList.find((inMenu) => menu === inMenu);
   }
 
+  static checkOnlyOneCategoryMenu(menu, menuList) {
+    return menuList.find((inMenu) => menu !== inMenu);
+  }
+
   static getMenuList() {
     const apitager = Object.entries(MEMU.애피타이저).toString();
     const dessert = Object.entries(MEMU.디저트).toString();
@@ -30,6 +34,11 @@ class PlannerUtils {
 
     const inMenu = [apitager, dessert, main, drink].join();
     return this.seperateByComma(inMenu);
+  }
+
+  static getDrinkMenu() {
+    const dessert = Object.entries(MEMU.음료).toString();
+    return this.seperateByComma(dessert);
   }
 
   static checkDuplicateInList(list, element) {

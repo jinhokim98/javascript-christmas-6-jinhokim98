@@ -67,6 +67,15 @@ class Validator {
     }
   }
 
+  static isNotOnlyDrink(orders) {
+    const menus = PlannerUtils.seperateMenuFromOrder(orders);
+    const dessertMenu = PlannerUtils.getDrinkMenu();
+
+    if (menus.every((menu) => dessertMenu.includes(menu))) {
+      throw new Error(ERROR_MESSAGE.INVALID_ORDER);
+    }
+  }
+
   static findInvalidOrder(orders, condition) {
     if (orders.find((order) => condition(order)) !== undefined) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);

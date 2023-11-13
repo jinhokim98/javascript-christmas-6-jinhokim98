@@ -19,6 +19,8 @@ class Order {
 
     Validator.isNaturalNumber(orders);
     Validator.isNotMoreThanTwentyOrder(orders);
+
+    Validator.isNotOnlyDrink(orders);
   }
 }
 
