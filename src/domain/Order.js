@@ -1,13 +1,22 @@
+import MEMU from '../constants/Menu.js';
 import PlannerUtils from '../utils/PlannerUtils.js';
 import Validator from '../utils/Validator.js';
 
 class Order {
-  #menus;
+  #order;
 
   constructor(menus) {
-    const orders = PlannerUtils.seperateByComma(menus);
-    Order.#validate(orders);
-    this.#menus = menus;
+    const orderInput = PlannerUtils.seperateByComma(menus);
+    Order.#validate(orderInput);
+
+    const order = new Map();
+
+    orderInput.forEach((menu) => {
+      const [dish, count] = menu.split('-');
+      order.set(dish, Number(count));
+    });
+
+    this.#order = order;
   }
 
   static #validate(orders) {
@@ -21,6 +30,16 @@ class Order {
     Validator.isNotMoreThanTwentyOrder(orders);
 
     Validator.isNotOnlyDrink(orders);
+  }
+
+  calculateTotalBill() {
+    let totalBill = 0;
+
+    this.#order.forEach((count, menu) => {
+      totalBill += PlannerUtils.findPrice(menu) * count;
+    });
+
+    return totalBill;
   }
 }
 

@@ -41,6 +41,13 @@ class PlannerUtils {
     return this.seperateByComma(dessert);
   }
 
+  static findPrice(menu) {
+    const menus = Object.entries(MEMU);
+    const foundCategory = menus.find((category) => menu in category[1]);
+
+    return foundCategory[1][menu];
+  }
+
   static checkDuplicateInList(list, element) {
     return list.indexOf(element) !== list.lastIndexOf(element);
   }

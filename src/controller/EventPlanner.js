@@ -13,6 +13,8 @@ class EventPlanner {
     const visitDay = await repeatUntilValidInput(this.inputVisitDay);
     const customer = new Customer(visitDay);
     const order = await repeatUntilValidInput(this.inputOrder);
+    customer.completeOrder(order);
+    customer.getTotalBill();
   }
 
   static start() {
