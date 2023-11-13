@@ -5,7 +5,7 @@ class Order {
   #menus;
 
   constructor(menus) {
-    const orders = PlannerUtils.seperateOrdersByComma(menus);
+    const orders = PlannerUtils.seperateByComma(menus);
     Order.#validate(orders);
     this.#menus = menus;
   }

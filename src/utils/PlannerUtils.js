@@ -5,9 +5,9 @@ class PlannerUtils {
     return 900 + day * 100;
   }
 
-  static seperateOrdersByComma(orderInput) {
-    const order = orderInput.split(',');
-    return order;
+  static seperateByComma(input) {
+    const seperated = input.split(',');
+    return seperated;
   }
 
   static seperateMenuFromOrder(orders) {
@@ -29,7 +29,7 @@ class PlannerUtils {
     const drink = Object.entries(MEMU.음료).toString();
 
     const inMenu = [apitager, dessert, main, drink].join();
-    return this.seperateOrdersByComma(inMenu);
+    return this.seperateByComma(inMenu);
   }
 
   static checkDuplicateInList(list, element) {
