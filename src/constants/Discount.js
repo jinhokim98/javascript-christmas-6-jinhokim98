@@ -1,0 +1,2 @@
+export const DISCOUNT_AMOUNT = 2023;
+export const SPECIFIC_DISCOUNT_AMOUNT = 1000;
