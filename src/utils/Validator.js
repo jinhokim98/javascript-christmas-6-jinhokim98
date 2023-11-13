@@ -28,6 +28,14 @@ class Validator {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
   }
+
+  static isValidOrderForm(orders) {
+    const orderForm = /^[가-힣]+-\d+$/;
+
+    if (orders.find((order) => !orderForm.test(order)) !== undefined) {
+      throw new Error(ERROR_MESSAGE.INVALID_ORDER);
+    }
+  }
 }
 
 export default Validator;
