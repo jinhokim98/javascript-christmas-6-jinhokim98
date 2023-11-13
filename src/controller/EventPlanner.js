@@ -8,13 +8,13 @@ import OutputView from '../view/OutputView.js';
 import repeatUntilValidInput from '../utils/RepeatUntilValidInput.js';
 
 class EventPlanner {
-  async init() {
+  async init(eventStatistics) {
     EventPlanner.start();
     const visitDay = await repeatUntilValidInput(this.inputVisitDay);
     const customer = new Customer(visitDay);
     const order = await repeatUntilValidInput(this.inputOrder);
     customer.completeOrder(order);
-    customer.getTotalBill();
+    eventStatistics.enrollCustomer(customer);
   }
 
   static start() {
@@ -31,7 +31,6 @@ class EventPlanner {
   async inputOrder() {
     const inputOrder = await InputView.readOrder();
     const order = new Order(inputOrder);
-
     return order;
   }
 }
