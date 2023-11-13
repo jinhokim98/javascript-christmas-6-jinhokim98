@@ -60,7 +60,7 @@ class Validator {
 
   static isNotMoreThanTwentyOrder(orders) {
     const menusCount = PlannerUtils.seperateMenuCountFromOrder(orders);
-    const sumMenusCount = menusCount.reduce((acc, cur) => acc + cur, 0);
+    const sumMenusCount = menusCount.reduce((acc, cur) => acc + Number(cur), 0);
 
     if (sumMenusCount > MAX_ORDER) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
