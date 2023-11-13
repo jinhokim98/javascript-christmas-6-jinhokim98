@@ -1,23 +1,23 @@
 const MEMU = {
-  APPETIZER: {
-    MUSHROOM_SOUP: 6000,
-    TAPAS: 5500,
-    CAESAR_SALAD: 8000,
+  애피타이저: {
+    양송이수프: 6000,
+    타파스: 5500,
+    시저샐러드: 8000,
   },
-  MAIN_DISH: {
-    T_BORN_STAKE: 55000,
-    BBQ_RIBS: 54000,
-    SEAFOOD_PASTA: 35000,
-    CHRISTMAS_PASTA: 25000,
+  메인: {
+    티본스테이크: 55000,
+    바비큐립: 54000,
+    해산물파스타: 35000,
+    크리스마스파스타: 25000,
   },
-  DESSART: {
-    CHOCOLATE_CAKE: 15000,
-    ICECREAM: 5000,
+  디저트: {
+    초코케이크: 15000,
+    아이스크림: 5000,
   },
-  DRINK: {
-    ZERO_COKE: 3000,
-    RED_WINE: 60000,
-    CHAMPAGNE: 25000,
+  음료: {
+    제로콜라: 3000,
+    레드와인: 60000,
+    샴페인: 25000,
   },
 };
 

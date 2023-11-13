@@ -1,4 +1,6 @@
 import ERROR_MESSAGE from '../constants/ErrorMessage.js';
+import PlannerUtils from './PlannerUtils.js';
+import MEMU from '../constants/Menu.js';
 
 class Validator {
   static isNotEmpty(input) {
@@ -24,15 +26,26 @@ class Validator {
   }
 
   static isNotIncludeEmptyOrder(orders) {
-    if (orders.find((order) => order.length <= 0) !== undefined) {
-      throw new Error(ERROR_MESSAGE.INVALID_ORDER);
-    }
+    this.findInvalidOrder(orders, (order) => order.length <= 0);
   }
 
   static isValidOrderForm(orders) {
     const orderForm = /^[가-힣]+-\d+$/;
 
-    if (orders.find((order) => !orderForm.test(order)) !== undefined) {
+    this.findInvalidOrder(orders, (order) => !orderForm.test(order));
+  }
+
+  static isInMenu(orders) {
+    const menus = PlannerUtils.seperateMenuFromOrder(orders);
+    const menuList = PlannerUtils.getMenuList();
+
+    this.findInvalidOrder(menus, (menu) =>
+      PlannerUtils.checkInMenuList(menu, menuList),
+    );
+  }
+
+  static findInvalidOrder(orders, condition) {
+    if (orders.find((order) => condition(order)) !== undefined) {
       throw new Error(ERROR_MESSAGE.INVALID_ORDER);
     }
   }

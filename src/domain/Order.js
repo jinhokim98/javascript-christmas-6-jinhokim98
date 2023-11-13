@@ -13,6 +13,7 @@ class Order {
   static #validate(orders) {
     Validator.isNotIncludeEmptyOrder(orders);
     Validator.isValidOrderForm(orders);
+    Validator.isInMenu(orders);
   }
 }
 
