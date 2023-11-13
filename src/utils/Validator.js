@@ -1,6 +1,5 @@
 import ERROR_MESSAGE from '../constants/ErrorMessage.js';
 import PlannerUtils from './PlannerUtils.js';
-import MEMU from '../constants/Menu.js';
 
 class Validator {
   static isNotEmpty(input) {
@@ -50,6 +49,12 @@ class Validator {
     this.findInvalidOrder(menus, (menu) =>
       PlannerUtils.checkDuplicateInList(menus, menu),
     );
+  }
+
+  static isNaturalNumber(orders) {
+    const menusCount = PlannerUtils.seperateMenuCountFromOrder(orders);
+
+    this.findInvalidOrder(menusCount, (menuCount) => menuCount <= 0);
   }
 
   static findInvalidOrder(orders, condition) {

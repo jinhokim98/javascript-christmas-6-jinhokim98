@@ -15,6 +15,8 @@ class Order {
     Validator.isValidOrderForm(orders);
     Validator.isInMenu(orders);
     Validator.isNotDuplicateMenu(orders);
+
+    Validator.isNaturalNumber(orders);
   }
 }
 
