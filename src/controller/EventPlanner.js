@@ -1,5 +1,6 @@
 import VisitDay from '../domain/VisitDay.js';
 import Customer from '../domain/Customer.js';
+import Order from '../domain/Order.js';
 
 import InputView from '../view/InputView.js';
 import OutputView from '../view/OutputView.js';
@@ -11,6 +12,7 @@ class EventPlanner {
     EventPlanner.start();
     const visitDay = await repeatUntilValidInput(this.inputVisitDay);
     const customer = new Customer(visitDay);
+    const order = await repeatUntilValidInput(this.inputOrder);
   }
 
   static start() {
@@ -22,6 +24,13 @@ class EventPlanner {
     const visitDay = new VisitDay(inputVisitDay);
 
     return visitDay;
+  }
+
+  async inputOrder() {
+    const inputOrder = await InputView.readOrder();
+    const order = new Order(inputOrder);
+
+    return order;
   }
 }
 

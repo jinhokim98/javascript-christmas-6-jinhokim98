@@ -22,6 +22,12 @@ class Validator {
       throw new Error(ERROR_MESSAGE.INVALID_DAY);
     }
   }
+
+  static isNotIncludeEmptyOrder(orders) {
+    if (orders.find((order) => order.length <= 0) !== undefined) {
+      throw new Error(ERROR_MESSAGE.INVALID_ORDER);
+    }
+  }
 }
 
 export default Validator;

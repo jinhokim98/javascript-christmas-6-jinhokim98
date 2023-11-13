@@ -6,6 +6,11 @@ const InputView = {
     const input = await Console.readLineAsync(MESSAGE.WHEN_IS_VISIT_DAY);
     return input;
   },
+
+  async readOrder() {
+    const input = await Console.readLineAsync(MESSAGE.WOULD_YOU_LIKE_TO_ORDER);
+    return input;
+  },
 };
 
 export default InputView;
