@@ -1,3 +1,5 @@
+import { MIN_BILL_FOR_APPLY_EVENT, NONE } from '../constants/Discount.js';
+
 class Customer {
   #visitDay;
 
@@ -13,6 +15,14 @@ class Customer {
 
   getTotalBill() {
     return this.#order.calculateTotalBill();
+  }
+
+  giveDuplicateDiscount() {
+    const totalBill = this.getTotalBill();
+
+    if (totalBill < MIN_BILL_FOR_APPLY_EVENT) {
+      return NONE;
+    }
   }
 }
 
