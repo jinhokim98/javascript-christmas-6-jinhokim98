@@ -13,10 +13,12 @@ class Order {
   static #validate(orders) {
     Validator.isNotIncludeEmptyOrder(orders);
     Validator.isValidOrderForm(orders);
+
     Validator.isInMenu(orders);
     Validator.isNotDuplicateMenu(orders);
 
     Validator.isNaturalNumber(orders);
+    Validator.isNotMoreThanTwentyOrder(orders);
   }
 }
 

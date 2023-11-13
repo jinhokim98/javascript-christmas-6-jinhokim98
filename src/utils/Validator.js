@@ -1,5 +1,6 @@
 import ERROR_MESSAGE from '../constants/ErrorMessage.js';
 import PlannerUtils from './PlannerUtils.js';
+import MAX_ORDER from '../constants/MaxOrder';
 
 class Validator {
   static isNotEmpty(input) {
@@ -55,6 +56,15 @@ class Validator {
     const menusCount = PlannerUtils.seperateMenuCountFromOrder(orders);
 
     this.findInvalidOrder(menusCount, (menuCount) => menuCount <= 0);
+  }
+
+  static isNotMoreThanTwentyOrder(orders) {
+    const menusCount = PlannerUtils.seperateMenuCountFromOrder(orders);
+    const sumMenusCount = menusCount.reduce((acc, cur) => acc + cur, 0);
+
+    if (sumMenusCount > MAX_ORDER) {
+      throw new Error(ERROR_MESSAGE.INVALID_ORDER);
+    }
   }
 
   static findInvalidOrder(orders, condition) {
