@@ -11,6 +11,7 @@ class VisitDay {
   static #validate(visitDay) {
     Validator.isNotEmpty(visitDay);
     Validator.isOnlyNumber(visitDay);
+    Validator.isDayFormat(visitDay);
   }
 
   getVisitDay() {
