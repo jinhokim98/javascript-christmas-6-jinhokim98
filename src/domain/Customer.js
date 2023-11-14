@@ -9,6 +9,7 @@ import BADGE, {
   MIN_BENEFITS_FOR_STAR_BADGE,
   MIN_BENEFITS_FOR_TREE_BADGE,
 } from '../constants/Badge.js';
+import FORMATTING_MESSAGE from '../constants/FormatMessage.js';
 
 class Customer {
   #visitDay;
@@ -134,6 +135,24 @@ class Customer {
 
   getGiftHistory() {
     return this.#benefits.get(Gift.name());
+  }
+
+  getBenefitsHistory() {
+    if (this.#benefits === undefined) {
+      return undefined;
+    }
+
+    return Array.from(this.#benefits.entries()).map(([eventName, benefit]) =>
+      Customer.#formattingBenefits(eventName, benefit),
+    );
+  }
+
+  static #formattingBenefits(eventName, benefit) {
+    if (benefit === NONE) {
+      return undefined;
+    }
+
+    return FORMATTING_MESSAGE.benefits(eventName, benefit);
   }
 }
 

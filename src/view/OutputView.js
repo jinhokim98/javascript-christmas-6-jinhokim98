@@ -32,6 +32,19 @@ const OutputView = {
     Console.print(MESSAGE.GIFT_CHAMPAGNE);
   },
 
+  printBenefits(benefits) {
+    Console.print(MESSAGE.BENEFITS);
+
+    if (benefits === undefined) {
+      Console.print(MESSAGE.NONE);
+      return;
+    }
+
+    benefits.forEach((benefit) => {
+      if (benefit !== undefined) Console.print(benefit);
+    });
+  },
+
   printError(error) {
     Console.print(error.message);
   },
