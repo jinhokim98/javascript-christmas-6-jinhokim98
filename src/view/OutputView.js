@@ -1,6 +1,7 @@
 import { Console } from '@woowacourse/mission-utils';
 import MESSAGE from '../constants/Message.js';
 import FORMATTING_MESSAGE from '../constants/FormatMessage.js';
+import { NONE } from '../constants/Discount.js';
 
 const OutputView = {
   printWelcome() {
@@ -18,6 +19,17 @@ const OutputView = {
   printTotalBillBeforeDiscount(totalBill) {
     Console.print(MESSAGE.TOTAL_BILL_BEFORE_DISCOUNT);
     Console.print(FORMATTING_MESSAGE.won(totalBill));
+  },
+
+  printGift(gift) {
+    Console.print(MESSAGE.GIFT_MENU);
+
+    if (gift === NONE) {
+      Console.print(MESSAGE.NONE);
+      return;
+    }
+
+    Console.print(MESSAGE.GIFT_CHAMPAGNE);
   },
 
   printError(error) {

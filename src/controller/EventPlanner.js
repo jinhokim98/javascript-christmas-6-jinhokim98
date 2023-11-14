@@ -40,6 +40,7 @@ class EventPlanner {
   showOrderAndBenefitInfo(customer) {
     OutputView.printMenu(customer.loadOrderMenus());
     OutputView.printTotalBillBeforeDiscount(customer.getTotalBill());
+    OutputView.printGift(customer.getGiftHistory());
   }
 }
 

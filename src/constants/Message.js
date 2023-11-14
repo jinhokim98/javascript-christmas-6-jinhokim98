@@ -10,6 +10,8 @@ const MESSAGE = {
   TOTAL_BENEFITS: '<총혜택 금액>',
   TOTAL_BILL_AFTER_DISCOUNT: '<할인 후 예상 결제 금액>',
   EVENT_BADGE: '<12월 이벤트 배지>',
+  NONE: '없음',
+  GIFT_CHAMPAGNE: '샴페인 1개',
 };
 
 Object.freeze(MESSAGE);

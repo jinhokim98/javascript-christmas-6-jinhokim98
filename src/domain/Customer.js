@@ -131,6 +131,10 @@ class Customer {
   getTotalBillAfterDiscount() {
     return this.getTotalBill() - this.getTotalDiscountsAmount();
   }
+
+  getGiftHistory() {
+    return this.#benefits.get(Gift.name());
+  }
 }
 
 export default Customer;
