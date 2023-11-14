@@ -119,6 +119,10 @@ class Customer {
 
     this.#badge = BADGE.SANTA;
   }
+
+  getTotalBillAfterDiscount() {
+    return this.getTotalBill() - this.getTotalDiscountsAmount();
+  }
 }
 
 export default Customer;
