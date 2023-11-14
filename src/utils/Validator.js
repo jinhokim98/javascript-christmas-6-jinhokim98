@@ -58,7 +58,7 @@ class Validator {
     this.findInvalidOrder(menusCount, (menuCount) => menuCount <= 0);
   }
 
-  static isNotMoreThanTwentyOrder(orders) {
+  static isOrLessThanMaximunOrder(orders) {
     const menusCount = PlannerUtils.seperateMenuCountFromOrder(orders);
     const sumMenusCount = menusCount.reduce((acc, cur) => acc + Number(cur), 0);
 

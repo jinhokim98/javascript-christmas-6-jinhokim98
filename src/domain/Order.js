@@ -27,7 +27,7 @@ class Order {
     Validator.isNotDuplicateMenu(orders);
 
     Validator.isNaturalNumber(orders);
-    Validator.isNotMoreThanTwentyOrder(orders);
+    Validator.isOrLessThanMaximunOrder(orders);
 
     Validator.isNotOnlyDrink(orders);
   }
