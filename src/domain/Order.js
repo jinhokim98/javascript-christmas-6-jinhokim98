@@ -46,7 +46,9 @@ class Order {
       PlannerUtils.findCategory(menu),
     );
 
-    const count = PlannerUtils.counter(category, categories);
+    const menuCount = Array.from(this.#order.values());
+
+    const count = PlannerUtils.counter(category, categories, menuCount);
     return count;
   }
 }

@@ -1,10 +1,20 @@
-import { DISCOUNT_AMOUNT } from '../../constants/Discount.js';
+import { DISCOUNT_AMOUNT, NONE } from '../../constants/Discount.js';
+import { MAIN } from '../../constants/MenuCategory.js';
 
-const Weekend = {
-  discount: (dessertCount, totalBill) => {
+class Weekend {
+  static apply(visitDay, order) {
+    if (!visitDay.isWeekend()) {
+      return NONE;
+    }
+
+    const count = order.getCategoryCountInOrder(MAIN);
+    return this.#discount(count);
+  }
+
+  static #discount(dessertCount) {
     const discount = dessertCount * DISCOUNT_AMOUNT;
-    return totalBill - discount;
-  },
-};
+    return discount;
+  }
+}
 
 export default Weekend;
