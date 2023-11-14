@@ -10,6 +10,8 @@ class Customer {
 
   #order;
 
+  #benefits;
+
   constructor(visitDay) {
     this.#visitDay = visitDay;
   }
@@ -26,14 +28,51 @@ class Customer {
     const totalBill = this.getTotalBill();
 
     if (totalBill < MIN_BILL_FOR_APPLY_EVENT) {
+      return;
+    }
+
+    const benefits = this.#applyEvents();
+    this.#benefits = benefits;
+  }
+
+  #applyEvents() {
+    const benefits = new Map();
+    benefits.set(ChristmasDDAy.name(), ChristmasDDAy.apply(this.#visitDay));
+    benefits.set(Weekday.name(), Weekday.apply(this.#visitDay, this.#order));
+    benefits.set(Weekend.name(), Weekend.apply(this.#visitDay, this.#order));
+    benefits.set(Specific.name(), Specific.apply(this.#visitDay));
+    benefits.set(Gift.name(), Gift.apply(this.getTotalBill()));
+
+    return benefits;
+  }
+
+  getTotalBenefitsAmount() {
+    if (this.#benefits === undefined) {
       return NONE;
     }
 
-    const christmasDDayDiscount = ChristmasDDAy.apply(this.#visitDay);
-    const weekdayDiscount = Weekday.apply(this.#visitDay, this.#order);
-    const weekendDiscount = Weekend.apply(this.#visitDay, this.#order);
-    const specificDiscount = Specific.apply(this.#visitDay);
-    const gift = Gift.apply(this.getTotalBill());
+    const totalBenefits = Array.from(this.#benefits.values()).reduce(
+      (acc, cur) => acc + cur,
+      0,
+    );
+
+    return totalBenefits;
+  }
+
+  getTotalDiscountsAmount() {
+    if (this.#benefits === undefined) {
+      return NONE;
+    }
+
+    const nonGift = new Map(
+      [...this.#benefits].filter(([key]) => key !== Gift.name()),
+    );
+
+    const totalDiscounts = Array.from(nonGift.values()).reduce(
+      (acc, cur) => acc + cur,
+      0,
+    );
+    return totalDiscounts;
   }
 }
 

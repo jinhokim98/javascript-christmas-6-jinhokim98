@@ -1,7 +1,12 @@
 import { DISCOUNT_AMOUNT, NONE } from '../../constants/Discount.js';
+import EVENT_NAME from '../../constants/EventName.js';
 import { MAIN } from '../../constants/MenuCategory.js';
 
 class Weekend {
+  static name() {
+    return EVENT_NAME.WEEKEND;
+  }
+
   static apply(visitDay, order) {
     if (!visitDay.isWeekend()) {
       return NONE;

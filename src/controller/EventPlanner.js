@@ -15,7 +15,7 @@ class EventPlanner {
     const order = await repeatUntilValidInput(this.inputOrder);
     customer.completeOrder(order);
     eventStatistics.enrollCustomer(customer);
-    const discountAmount = customer.giveDuplicateDiscount();
+    customer.giveDuplicateDiscount();
   }
 
   static start() {
