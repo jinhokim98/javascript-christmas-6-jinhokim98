@@ -5,8 +5,12 @@ const OutputView = {
   printWelcome() {
     Console.print(MESSAGE.WELCOME);
   },
-  printMenu() {
-    Console.print('<주문 메뉴>');
+  printMenu(menus) {
+    Console.print(MESSAGE.ORDERED_MENU);
+
+    menus.forEach((menu) => {
+      Console.print(menu);
+    });
   },
   printError(error) {
     Console.print(error.message);

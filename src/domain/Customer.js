@@ -27,6 +27,14 @@ class Customer {
     this.#order = order;
   }
 
+  loadOrderMenus() {
+    if (this.#order === undefined) {
+      return undefined;
+    }
+
+    return this.#order.getOrderMenus();
+  }
+
   getTotalBill() {
     return this.#order.calculateTotalBill();
   }

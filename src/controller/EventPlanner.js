@@ -17,6 +17,7 @@ class EventPlanner {
     eventStatistics.enrollCustomer(customer);
     customer.giveDuplicateDiscount();
     customer.issueBadge();
+    this.showOrderAndBenefitInfo(customer);
   }
 
   static start() {
@@ -34,6 +35,10 @@ class EventPlanner {
     const inputOrder = await InputView.readOrder();
     const order = new Order(inputOrder);
     return order;
+  }
+
+  showOrderAndBenefitInfo(customer) {
+    OutputView.printMenu(customer.loadOrderMenus());
   }
 }
 

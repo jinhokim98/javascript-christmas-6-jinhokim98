@@ -1,5 +1,6 @@
 import PlannerUtils from '../utils/PlannerUtils.js';
 import Validator from '../utils/Validator.js';
+import FORMATTING_MESSAGE from '../constants/FormatMessage.js';
 
 class Order {
   #order;
@@ -50,6 +51,12 @@ class Order {
 
     const count = PlannerUtils.counter(category, categories, menuCount);
     return count;
+  }
+
+  getOrderMenus() {
+    return Array.from(this.#order.entries()).map(([menu, count]) =>
+      FORMATTING_MESSAGE.menuAndCount(menu, count),
+    );
   }
 }
 
