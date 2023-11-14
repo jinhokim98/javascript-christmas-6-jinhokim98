@@ -1,4 +1,4 @@
-import { DECEMBER } from '../constants/Day.js';
+import { CHRISTMAS, DECEMBER } from '../constants/Day.js';
 import PlannerUtils from '../utils/PlannerUtils.js';
 import Validator from '../utils/Validator.js';
 
@@ -26,6 +26,13 @@ class VisitDay {
   isWeekend() {
     const dayOfWeek = this.#visitDay.getDay();
     return dayOfWeek === 5 || dayOfWeek === 6;
+  }
+
+  isSpecificDay() {
+    const isSunday = this.#visitDay.getDay() === 0;
+    const isChristmas = this.#visitDay === CHRISTMAS;
+
+    return isSunday || isChristmas;
   }
 }
 
