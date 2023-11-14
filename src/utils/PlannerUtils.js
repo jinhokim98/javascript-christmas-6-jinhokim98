@@ -51,18 +51,19 @@ class PlannerUtils {
     return foundCategory[0];
   }
 
-  static counter(element, list) {
+  static counter(element, list, elementCount) {
     const countNumber = list.reduce(
-      (count, cur) => this.#counterPlus(element, count, cur),
+      (count, cur, index) =>
+        this.#counterPlus(element, count, cur, index, elementCount),
       0,
     );
 
     return countNumber;
   }
 
-  static #counterPlus(element, count, cur) {
+  static #counterPlus(element, count, cur, index, elementCount) {
     if (element === cur) {
-      return count + 1;
+      return count + elementCount[index];
     }
     return count;
   }
