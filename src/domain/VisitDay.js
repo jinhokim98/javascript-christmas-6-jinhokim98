@@ -22,6 +22,11 @@ class VisitDay {
   getVisitDay() {
     return this.#visitDay.getDate();
   }
+
+  isWeekend() {
+    const dayOfWeek = this.#visitDay.getDay();
+    return dayOfWeek === 5 || dayOfWeek === 6;
+  }
 }
 
 export default VisitDay;

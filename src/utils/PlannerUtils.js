@@ -44,6 +44,29 @@ class PlannerUtils {
     return foundCategory[1][menu];
   }
 
+  static findCategory(menu) {
+    const menus = Object.entries(MEMU);
+    const foundCategory = menus.find((category) => menu in category[1]);
+
+    return foundCategory[0];
+  }
+
+  static counter(element, list) {
+    const countNumber = list.reduce(
+      (count, cur) => this.#counterPlus(element, count, cur),
+      0,
+    );
+
+    return countNumber;
+  }
+
+  static #counterPlus(element, count, cur) {
+    if (element === cur) {
+      return count + 1;
+    }
+    return count;
+  }
+
   static checkDuplicateInList(list, element) {
     return list.indexOf(element) !== list.lastIndexOf(element);
   }

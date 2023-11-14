@@ -1,5 +1,6 @@
 import { MIN_BILL_FOR_APPLY_EVENT, NONE } from '../constants/Discount.js';
 import ChristmasDDAy from './event/ChristmasDDay.js';
+import Weekday from './event/Weekday.js';
 
 class Customer {
   #visitDay;
@@ -26,7 +27,7 @@ class Customer {
     }
 
     const christmasDDayDiscount = ChristmasDDAy.apply(this.#visitDay);
-    console.log(christmasDDayDiscount);
+    const weekdayDiscount = Weekday.apply(this.#visitDay, this.#order);
   }
 }
 

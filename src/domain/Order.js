@@ -40,6 +40,15 @@ class Order {
 
     return totalBill;
   }
+
+  getCategoryCountInOrder(category) {
+    const categories = Array.from(this.#order.keys()).map((menu) =>
+      PlannerUtils.findCategory(menu),
+    );
+
+    const count = PlannerUtils.counter(category, categories);
+    return count;
+  }
 }
 
 export default Order;
