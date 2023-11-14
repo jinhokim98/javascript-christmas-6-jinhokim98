@@ -1,3 +1,5 @@
+import { DECEMBER } from '../constants/Day.js';
+import PlannerUtils from '../utils/PlannerUtils.js';
 import Validator from '../utils/Validator.js';
 
 class VisitDay {
@@ -5,7 +7,10 @@ class VisitDay {
 
   constructor(visitDay) {
     VisitDay.#validate(visitDay);
-    this.#visitDay = visitDay;
+
+    this.#visitDay = new Date(
+      `${DECEMBER}-${PlannerUtils.fixDateFormat(visitDay)}`,
+    );
   }
 
   static #validate(visitDay) {
@@ -15,7 +20,7 @@ class VisitDay {
   }
 
   getVisitDay() {
-    return this.#visitDay;
+    return this.#visitDay.getDate();
   }
 }
 

@@ -1,4 +1,5 @@
 import { MIN_BILL_FOR_APPLY_EVENT, NONE } from '../constants/Discount.js';
+import ChristmasDDAy from './event/ChristmasDDay.js';
 
 class Customer {
   #visitDay;
@@ -23,6 +24,9 @@ class Customer {
     if (totalBill < MIN_BILL_FOR_APPLY_EVENT) {
       return NONE;
     }
+
+    const christmasDDayDiscount = ChristmasDDAy.apply(this.#visitDay);
+    console.log(christmasDDayDiscount);
   }
 }
 

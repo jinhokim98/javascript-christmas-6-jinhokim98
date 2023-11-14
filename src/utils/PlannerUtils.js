@@ -1,10 +1,6 @@
 import MEMU from '../constants/Menu.js';
 
 class PlannerUtils {
-  static calculateChristmasDiscount(day) {
-    return 900 + day * 100;
-  }
-
   static seperateByComma(input) {
     const seperated = input.split(',');
     return seperated;
@@ -50,6 +46,13 @@ class PlannerUtils {
 
   static checkDuplicateInList(list, element) {
     return list.indexOf(element) !== list.lastIndexOf(element);
+  }
+
+  static fixDateFormat(visitDay) {
+    if (visitDay < 10) {
+      return `0${visitDay}`;
+    }
+    return `${visitDay}`;
   }
 }
 
