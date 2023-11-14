@@ -16,6 +16,7 @@ class EventPlanner {
     customer.completeOrder(order);
     eventStatistics.enrollCustomer(customer);
     customer.giveDuplicateDiscount();
+    customer.issueBadge();
   }
 
   static start() {

@@ -4,6 +4,7 @@ import Weekday from './event/Weekday.js';
 import Weekend from './event/Weekend.js';
 import Specific from './event/Specific.js';
 import Gift from './event/Gift.js';
+import { MIN_BENEFITS_FOR_STAR_BADGE } from '../constants/Badge.js';
 
 class Customer {
   #visitDay;
@@ -11,6 +12,8 @@ class Customer {
   #order;
 
   #benefits;
+
+  #badge;
 
   constructor(visitDay) {
     this.#visitDay = visitDay;
@@ -73,6 +76,15 @@ class Customer {
       0,
     );
     return totalDiscounts;
+  }
+
+  issueBadge() {
+    if (
+      this.#benefits === undefined ||
+      this.getTotalBenefitsAmount() < MIN_BENEFITS_FOR_STAR_BADGE
+    ) {
+      return null;
+    }
   }
 }
 
