@@ -3,6 +3,7 @@ import ChristmasDDAy from './event/ChristmasDDay.js';
 import Weekday from './event/Weekday.js';
 import Weekend from './event/Weekend.js';
 import Specific from './event/Specific.js';
+import Gift from './event/Gift.js';
 
 class Customer {
   #visitDay;
@@ -32,6 +33,7 @@ class Customer {
     const weekdayDiscount = Weekday.apply(this.#visitDay, this.#order);
     const weekendDiscount = Weekend.apply(this.#visitDay, this.#order);
     const specificDiscount = Specific.apply(this.#visitDay);
+    const gift = Gift.apply(this.getTotalBill());
   }
 }
 

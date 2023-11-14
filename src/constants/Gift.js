@@ -1,7 +1,7 @@
 import MEMU from './Menu.js';
 
 const GIFT = {
-  gift: MEMU.DRINK.CHAMPAGNE,
+  champagne: MEMU.음료.샴페인,
 };
 
 Object.freeze(GIFT);
