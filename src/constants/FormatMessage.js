@@ -2,7 +2,7 @@ const FORMATTING_MESSAGE = {
   previewEventBenefits: (day) =>
     `12월 ${day}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`,
   menuAndCount: (menu, count) => `${menu} ${count}개`,
-  won: (won) => `${won}원`,
+  won: (won) => `${won.toLocaleString()}원`,
   christmasEventDiscount: (discount) =>
     `크리스마스 디데이 할인: -${discount}원`,
   weekdayDiscount: (discount) => `평일 할인: -${discount}원`,
