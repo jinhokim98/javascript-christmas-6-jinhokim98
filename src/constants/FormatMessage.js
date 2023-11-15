@@ -5,7 +5,7 @@ const FORMATTING_MESSAGE = {
   won: (won) => `${won.toLocaleString()}원`,
   benefits: (eventName, benefit) =>
     `${eventName} -${benefit.toLocaleString()}원`,
-  discountWon: (won) => `-${won}원`,
+  discountWon: (won) => `-${won.toLocaleString()}원`,
 };
 
 Object.freeze(FORMATTING_MESSAGE);

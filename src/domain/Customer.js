@@ -98,7 +98,6 @@ class Customer {
 
     const totalBenefits = this.getTotalBenefitsAmount();
     this.#badge = new Badge(totalBenefits);
-    console.log(this.#badge.loadBadgeName());
   }
 
   getTotalBillAfterDiscount() {

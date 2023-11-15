@@ -10,10 +10,13 @@ import repeatUntilValidInput from '../utils/RepeatUntilValidInput.js';
 class EventPlanner {
   async init(eventStatistics) {
     EventPlanner.start();
+
     const visitDay = await repeatUntilValidInput(this.inputVisitDay);
     const customer = new Customer(visitDay);
+
     const order = await repeatUntilValidInput(this.inputOrder);
     customer.completeOrder(order);
+
     eventStatistics.enrollCustomer(customer);
     customer.giveDuplicateDiscount();
     customer.issueBadge();
@@ -42,6 +45,7 @@ class EventPlanner {
     OutputView.printTotalBillBeforeDiscount(customer.getTotalBill());
     OutputView.printGift(customer.getGiftHistory());
     OutputView.printBenefits(customer.getBenefitsHistory());
+    OutputView.printTotalBenefits(customer.getTotalBenefitsAmount());
   }
 }
 

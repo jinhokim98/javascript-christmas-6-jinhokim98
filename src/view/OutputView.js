@@ -45,6 +45,17 @@ const OutputView = {
     });
   },
 
+  printTotalBenefits(benefits) {
+    Console.print(MESSAGE.TOTAL_BENEFITS);
+
+    if (benefits === NONE) {
+      Console.print(MESSAGE.NONE);
+      return;
+    }
+
+    Console.print(FORMATTING_MESSAGE.discountWon(benefits));
+  },
+
   printError(error) {
     Console.print(error.message);
   },
