@@ -1,6 +1,8 @@
+import GIFT from "../../src/constants/Gift.js";
 import Order from "../../src/domain/Order.js";
 import VisitDay from "../../src/domain/VisitDay";
 import ChristmasDDay from "../../src/domain/event/ChristmasDDay.js";
+import Gift from "../../src/domain/event/Gift.js";
 import Specific from "../../src/domain/event/Specific.js";
 import Weekday from "../../src/domain/event/Weekday.js";
 import Weekend from "../../src/domain/event/Weekend.js";
@@ -149,6 +151,30 @@ describe('이벤트 테스트', () => {
 
       // when
       const applied = Specific.apply(VISIT_DAY)
+
+      // then
+      expect(applied).toEqual(ANSWER);
+    });
+  });
+  describe('증정 테스트', () => {
+    test('할인 전 금액이 11만원일 때 증정은 없다.', () => {
+      // given
+      const TOTAL_BILL_BEFORE_DISCOUNT = 110000; 
+      const ANSWER = 0;
+
+      // when
+      const applied = Gift.apply(TOTAL_BILL_BEFORE_DISCOUNT);
+
+      // then
+      expect(applied).toEqual(ANSWER);
+    });
+    test('할인 전 금액이 12만원일 때 증정은 샴페인 1개이다.', () => {
+      // given
+      const TOTAL_BILL_BEFORE_DISCOUNT = 120000; 
+      const ANSWER = GIFT.champagne;
+
+      // when
+      const applied = Gift.apply(TOTAL_BILL_BEFORE_DISCOUNT);
 
       // then
       expect(applied).toEqual(ANSWER);
