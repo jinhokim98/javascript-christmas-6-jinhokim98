@@ -17,10 +17,11 @@ class EventPlanner {
     const order = await repeatUntilValidInput(this.inputOrder);
     customer.completeOrder(order);
 
-    eventStatistics.enrollCustomer(customer);
     customer.giveDuplicateDiscount();
     customer.issueBadge();
     this.showOrderAndBenefitInfo(customer);
+    eventStatistics.enrollCustomer(customer);
+    EventPlanner.end();
   }
 
   static start() {
@@ -52,6 +53,8 @@ class EventPlanner {
     );
     OutputView.printEventBadge(customer.loadEventBadge());
   }
+
+  static end() {}
 }
 
 export default EventPlanner;
