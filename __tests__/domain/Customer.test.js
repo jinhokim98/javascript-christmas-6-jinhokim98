@@ -19,8 +19,8 @@ describe('고객 테스트', () => {
       expect(customer.getTotalBenefitsAmount()).toEqual(ANSWER);
     });
 
-    const INPUTS = [['12', '해산물파스타-2,아이스크림-1', 4123], ['25', '바비큐립-1,레드와인-1,초코케이크-2', 33446], ['30', '바비큐립-2', 4046]];
-    test.each(INPUTS)('총 혜택 금액 검증하기', (day, order, answer) => {
+    const TOTAL_BENEFITS_INPUTS = [['12', '해산물파스타-2,아이스크림-1', 4123], ['25', '바비큐립-1,레드와인-1,초코케이크-2', 33446], ['30', '바비큐립-2', 4046]];
+    test.each(TOTAL_BENEFITS_INPUTS)('총 혜택 금액 검증하기', (day, order, answer) => {
       // given
       const VISIT_DAY = new VisitDay(day);
       const ORDER_MENU = order;
@@ -32,6 +32,21 @@ describe('고객 테스트', () => {
       customer.giveDuplicateDiscount();
 
       expect(customer.getTotalBenefitsAmount()).toEqual(ANSWER);
+    });
+
+    const TOTAL_DISCOUNT_INPUTS = [['12', '해산물파스타-2,아이스크림-1', 70877], ['25', '바비큐립-1,레드와인-1,초코케이크-2', 135554], ['30', '바비큐립-2', 103954]];
+    test.each(TOTAL_DISCOUNT_INPUTS)('할인 후 예상 결제 금액 검증하기', (day, order, answer) => {
+      // given
+      const VISIT_DAY = new VisitDay(day);
+      const ORDER_MENU = order;
+      const ANSWER = answer;
+
+      // when
+      const customer = new Customer(VISIT_DAY);
+      customer.completeOrder(new Order(ORDER_MENU));
+      customer.giveDuplicateDiscount();
+
+      expect(customer.getTotalBillAfterDiscount()).toEqual(ANSWER);
     });
   });
 });
