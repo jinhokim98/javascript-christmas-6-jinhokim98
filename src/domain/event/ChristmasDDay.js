@@ -6,7 +6,7 @@ import {
 } from '../../constants/Discount.js';
 import EVENT_NAME from '../../constants/EventName.js';
 
-class ChristmasDDAy {
+class ChristmasDDay {
   static name() {
     return EVENT_NAME.CHRISTMAS_D_DAY;
   }
@@ -16,7 +16,7 @@ class ChristmasDDAy {
       return NONE;
     }
 
-    return ChristmasDDAy.#discount(visitDay);
+    return ChristmasDDay.#discount(visitDay);
   }
 
   static #discount(visitDay) {
@@ -26,4 +26,4 @@ class ChristmasDDAy {
   }
 }
 
-export default ChristmasDDAy;
+export default ChristmasDDay;

@@ -1,5 +1,5 @@
 import { MIN_BILL_FOR_APPLY_EVENT, NONE } from '../constants/Discount.js';
-import ChristmasDDAy from './event/ChristmasDDay.js';
+import ChristmasDDay from './event/ChristmasDDay.js';
 import Weekday from './event/Weekday.js';
 import Weekend from './event/Weekend.js';
 import Specific from './event/Specific.js';
@@ -50,7 +50,7 @@ class Customer {
 
   #applyEvents() {
     const benefits = new Map();
-    benefits.set(ChristmasDDAy.name(), ChristmasDDAy.apply(this.#visitDay));
+    benefits.set(ChristmasDDay.name(), ChristmasDDay.apply(this.#visitDay));
     benefits.set(Weekday.name(), Weekday.apply(this.#visitDay, this.#order));
     benefits.set(Weekend.name(), Weekend.apply(this.#visitDay, this.#order));
     benefits.set(Specific.name(), Specific.apply(this.#visitDay));

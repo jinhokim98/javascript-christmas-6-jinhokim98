@@ -19,7 +19,7 @@ class EventPlanner {
 
     customer.giveDuplicateDiscount();
     customer.issueBadge();
-    this.showOrderAndBenefitInfo(customer);
+    EventPlanner.showOrderAndBenefitInfo(customer);
     eventStatistics.enrollCustomer(customer);
     EventPlanner.end();
   }
@@ -41,7 +41,7 @@ class EventPlanner {
     return order;
   }
 
-  showOrderAndBenefitInfo(customer) {
+  static showOrderAndBenefitInfo(customer) {
     OutputView.printPreviewEventBenefits(customer.loadVisitDay());
     OutputView.printMenu(customer.loadOrderMenus());
     OutputView.printTotalBillBeforeDiscount(customer.getTotalBill());
