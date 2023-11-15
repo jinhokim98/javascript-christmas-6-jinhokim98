@@ -118,6 +118,22 @@ class Customer {
     );
   }
 
+  loadVisitDay() {
+    if (this.#visitDay === undefined) {
+      return undefined;
+    }
+
+    return this.#visitDay.getVisitDay();
+  }
+
+  loadEventBadge() {
+    if (this.#badge === undefined) {
+      return undefined;
+    }
+
+    return this.#badge.loadBadgeName();
+  }
+
   static #formattingBenefits(eventName, benefit) {
     if (benefit === NONE) {
       return undefined;

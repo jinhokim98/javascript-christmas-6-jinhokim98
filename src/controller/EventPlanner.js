@@ -41,6 +41,7 @@ class EventPlanner {
   }
 
   showOrderAndBenefitInfo(customer) {
+    OutputView.printPreviewEventBenefits(customer.loadVisitDay());
     OutputView.printMenu(customer.loadOrderMenus());
     OutputView.printTotalBillBeforeDiscount(customer.getTotalBill());
     OutputView.printGift(customer.getGiftHistory());
@@ -49,6 +50,7 @@ class EventPlanner {
     OutputView.printTotalBillAfterDiscount(
       customer.getTotalBillAfterDiscount(),
     );
+    OutputView.printEventBadge(customer.loadEventBadge());
   }
 }
 

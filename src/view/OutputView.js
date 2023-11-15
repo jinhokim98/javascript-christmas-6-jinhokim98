@@ -8,6 +8,10 @@ const OutputView = {
     Console.print(MESSAGE.WELCOME);
   },
 
+  printPreviewEventBenefits(visitDay) {
+    Console.print(FORMATTING_MESSAGE.previewEventBenefits(visitDay));
+  },
+
   printMenu(menus) {
     Console.print(MESSAGE.ORDERED_MENU);
 
@@ -59,6 +63,15 @@ const OutputView = {
   printTotalBillAfterDiscount(totalBill) {
     Console.print(MESSAGE.TOTAL_BILL_AFTER_DISCOUNT);
     Console.print(FORMATTING_MESSAGE.won(totalBill));
+  },
+
+  printEventBadge(badge) {
+    if (badge === undefined) {
+      return;
+    }
+
+    Console.print(MESSAGE.EVENT_BADGE);
+    Console.print(badge);
   },
 
   printError(error) {
