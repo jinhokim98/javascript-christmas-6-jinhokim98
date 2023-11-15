@@ -1,6 +1,7 @@
 import ERROR_MESSAGE from '../constants/ErrorMessage.js';
 import PlannerUtils from './PlannerUtils.js';
-import MAX_ORDER from '../constants/MaxOrder.js';
+
+const MAX_ORDER = 20;
 
 class Validator {
   static isNotEmpty(input) {

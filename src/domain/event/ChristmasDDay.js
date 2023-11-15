@@ -1,10 +1,11 @@
-import { CHRISTMAS } from '../../constants/Day.js';
 import {
   DDAY_BASIC_DISCOUNT,
   INCREASE_DISCOUNT_PER_DAY,
   NONE,
 } from '../../constants/Discount.js';
 import EVENT_NAME from '../../constants/EventName.js';
+
+export const CHRISTMAS = new Date('2023-12-25');
 
 class ChristmasDDay {
   static name() {

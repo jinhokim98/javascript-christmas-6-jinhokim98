@@ -1,6 +1,10 @@
-import { CHRISTMAS, DECEMBER } from '../constants/Day.js';
 import PlannerUtils from '../utils/PlannerUtils.js';
 import Validator from '../utils/Validator.js';
+
+import { CHRISTMAS } from './event/ChristmasDDay.js';
+import { DAY_OF_WEEK } from './event/Specific.js';
+
+const DECEMBER = '2023-12';
 
 class VisitDay {
   #visitDay;
@@ -25,11 +29,13 @@ class VisitDay {
 
   isWeekend() {
     const dayOfWeek = this.#visitDay.getDay();
-    return dayOfWeek === 5 || dayOfWeek === 6;
+    return (
+      dayOfWeek === DAY_OF_WEEK.FRIDAY || dayOfWeek === DAY_OF_WEEK.SATURDAY
+    );
   }
 
   isSpecificDay() {
-    const isSunday = this.#visitDay.getDay() === 0;
+    const isSunday = this.#visitDay.getDay() === DAY_OF_WEEK.SUNDAY;
     const isChristmas = this.#visitDay.getDate() === CHRISTMAS.getDate();
 
     return isSunday || isChristmas;

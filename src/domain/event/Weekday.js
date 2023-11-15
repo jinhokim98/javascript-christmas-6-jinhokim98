@@ -1,6 +1,6 @@
 import { DISCOUNT_AMOUNT, NONE } from '../../constants/Discount.js';
 import EVENT_NAME from '../../constants/EventName.js';
-import { DESSERT } from '../../constants/MenuCategory.js';
+import { DESSERT } from '../../constants/Menu.js';
 
 class Weekday {
   static name() {
