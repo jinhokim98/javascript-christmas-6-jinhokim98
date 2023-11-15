@@ -105,6 +105,10 @@ class Customer {
   }
 
   getGiftHistory() {
+    if (this.#benefits === undefined) {
+      return NONE;
+    }
+
     return this.#benefits.get(Gift.name());
   }
 
