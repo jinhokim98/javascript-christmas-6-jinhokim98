@@ -56,6 +56,11 @@ const OutputView = {
     Console.print(FORMATTING_MESSAGE.discountWon(benefits));
   },
 
+  printTotalBillAfterDiscount(totalBill) {
+    Console.print(MESSAGE.TOTAL_BILL_AFTER_DISCOUNT);
+    Console.print(FORMATTING_MESSAGE.won(totalBill));
+  },
+
   printError(error) {
     Console.print(error.message);
   },

@@ -46,6 +46,9 @@ class EventPlanner {
     OutputView.printGift(customer.getGiftHistory());
     OutputView.printBenefits(customer.getBenefitsHistory());
     OutputView.printTotalBenefits(customer.getTotalBenefitsAmount());
+    OutputView.printTotalBillAfterDiscount(
+      customer.getTotalBillAfterDiscount(),
+    );
   }
 }
 
