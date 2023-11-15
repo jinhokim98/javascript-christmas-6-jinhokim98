@@ -30,7 +30,7 @@ class VisitDay {
 
   isSpecificDay() {
     const isSunday = this.#visitDay.getDay() === 0;
-    const isChristmas = this.#visitDay === CHRISTMAS;
+    const isChristmas = this.#visitDay.getDate() === CHRISTMAS.getDate();
 
     return isSunday || isChristmas;
   }
