@@ -14,36 +14,24 @@ class Badge {
   }
 
   #issueBadge(totalBenefits) {
-    this.#issueStarBadge(totalBenefits);
-    this.#issueTreeBadge(totalBenefits);
-    this.#issueSantaBadge(totalBenefits);
-  }
-
-  #issueStarBadge(totalBenefits) {
-    if (totalBenefits >= BADGE_INFO.TREE.constraint) {
-      return;
-    }
-
-    this.#badge = BADGE_INFO.STAR;
-  }
-
-  #issueTreeBadge(totalBenefits) {
     if (totalBenefits >= BADGE_INFO.SANTA.constraint) {
+      this.#badge = BADGE_INFO.SANTA;
       return;
     }
-
-    this.#badge = BADGE_INFO.TREE;
-  }
-
-  #issueSantaBadge(totalBenefits) {
-    if (totalBenefits < BADGE_INFO.SANTA.constraint) {
+    if (totalBenefits >= BADGE_INFO.TREE.constraint) {
+      this.#badge = BADGE_INFO.TREE;
       return;
     }
-
-    this.#badge = BADGE_INFO.SANTA;
+    if (totalBenefits >= BADGE_INFO.STAR.constraint) {
+      this.#badge = BADGE_INFO.STAR;
+    }
   }
 
   loadBadgeName() {
+    if (this.#badge === undefined) {
+      return undefined;
+    }
+
     return this.#badge.name;
   }
 }
