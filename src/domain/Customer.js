@@ -4,12 +4,9 @@ import Weekday from './event/Weekday.js';
 import Weekend from './event/Weekend.js';
 import Specific from './event/Specific.js';
 import Gift from './event/Gift.js';
-import BADGE, {
-  MIN_BENEFITS_FOR_SANTA_BADGE,
-  MIN_BENEFITS_FOR_STAR_BADGE,
-  MIN_BENEFITS_FOR_TREE_BADGE,
-} from '../constants/Badge.js';
+
 import FORMATTING_MESSAGE from '../constants/FormatMessage.js';
+import Badge, { BADGE_INFO } from './Badge.js';
 
 class Customer {
   #visitDay;
@@ -94,39 +91,14 @@ class Customer {
   issueBadge() {
     if (
       this.#benefits === undefined ||
-      this.getTotalBenefitsAmount() < MIN_BENEFITS_FOR_STAR_BADGE
+      this.getTotalBenefitsAmount() < BADGE_INFO.STAR.constraint
     ) {
       return;
     }
 
     const totalBenefits = this.getTotalBenefitsAmount();
-    this.#issueStarBadge(totalBenefits);
-    this.#issueTreeBadge(totalBenefits);
-    this.#issueSantaBadge(totalBenefits);
-  }
-
-  #issueStarBadge(totalBenefits) {
-    if (totalBenefits >= MIN_BENEFITS_FOR_TREE_BADGE) {
-      return;
-    }
-
-    this.#badge = BADGE.STAR;
-  }
-
-  #issueTreeBadge(totalBenefits) {
-    if (totalBenefits >= MIN_BENEFITS_FOR_SANTA_BADGE) {
-      return;
-    }
-
-    this.#badge = BADGE.TREE;
-  }
-
-  #issueSantaBadge(totalBenefits) {
-    if (totalBenefits < MIN_BENEFITS_FOR_SANTA_BADGE) {
-      return;
-    }
-
-    this.#badge = BADGE.SANTA;
+    this.#badge = new Badge(totalBenefits);
+    console.log(this.#badge.loadBadgeName());
   }
 
   getTotalBillAfterDiscount() {
