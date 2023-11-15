@@ -9,7 +9,7 @@ class App {
   }
 
   async run() {
-    EventPlanner.prototype.init(this.#eventStatistics);
+    await EventPlanner.prototype.init(this.#eventStatistics);
   }
 }
 
